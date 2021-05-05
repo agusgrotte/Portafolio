@@ -1,0 +1,148 @@
+//@import
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+//Variables
+$fuente: 'Bebas Neue', cursive;
+
+//@Mixin
+
+@mixin posicion-titulo {
+    position: absolute;
+    font-size: 6rem;
+    bottom: 0;
+    left: calc(50% - 55px);
+    color: white;
+}
+@mixin medida-vector {
+    width: 60px;
+    height: 60px;
+}
+@mixin animacion{
+    animation-name: slidein;
+    @keyframes slidein {
+        from {
+          margin-left:100%;
+          width: 300%;
+          transition: 450ms all
+        }
+      
+        to {
+          margin-left: 0%;
+          width: 100%;
+          transition: 450ms all
+        }
+      }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: $fuente;
+}
+.navegador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    box-shadow: -5px 5px 50px 30px rgba(0,0,0,0);
+    
+    &_logo{
+        display:  flex;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 4rem;
+        & p{
+            margin-left: 20px;
+            justify-content: center;
+            &:hover{
+                transform: scale(1.3);
+                
+            } 
+        }
+    
+    }
+
+    &_items{
+        display:  flex;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 2rem;
+        & p{
+            margin-right: 20px;
+            font-family: $fuente;
+            letter-spacing: 1px;
+            &:hover{
+                transform: rotate(-20deg);
+            }
+
+        }
+        
+    
+    }
+}
+
+.menu_principal{
+    &--img img{
+        width: 100%;
+        height: 50vh;
+        border-end-end-radius: 50px;
+        border-end-start-radius: 50px;
+        border-bottom:none;
+        box-shadow: -10px 10px 10px 15px rgba(0,0,0,0.3);
+    }
+    &--img .hello{
+        animation-duration: 2s;
+        @include posicion-titulo;
+        @include animacion;
+        top: 110px;
+    }
+    &--img .iam{
+        animation-duration: 3s;
+        @include posicion-titulo;
+        @include animacion;
+        top: 170px;
+    }
+    &--img .agustin{
+        animation-duration: 4s;
+        @include posicion-titulo;
+        @include animacion;
+        top: 230px;
+    }
+    .subtitulo{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        .bombilla img{
+            @include medida-vector();
+        }
+        &h2{
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 2.4rem;
+        color: black;
+        }
+           
+    }
+
+.grid-lenguajes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+    }
+    span img{
+        @include medida-vector();
+    }    
+}
